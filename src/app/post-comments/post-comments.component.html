@@ -1,0 +1,37 @@
+
+<div class="container">
+    <nav class="navbar navbar-expand-md mb-3">
+        <!-- Brand -->
+        <a class="navbar-brand" routerLink="/">Back to Posts</a>
+      
+        <div class="form-inline ml-auto">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" [(ngModel)]="searchTerm">
+            <button class="btn btn-success" type="button" (click) = "searchComment()">Search</button>
+        </div>
+      </nav>
+    <div class="row" *ngIf="search == false">
+        <div class="col-md-12" *ngFor="let comment of comments">
+            <div class="card mb-3">
+                <div class="card-header">{{comment.name}}</div>
+                <div class="card-body">
+                    {{comment.body}}
+                    
+                </div>
+                <div class="card-footer">{{comment.email}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="search == true">
+        <div class="col-md-12" *ngFor="let comment of searchComments">
+            <div class="card mb-3">
+                <div class="card-header">{{comment.name}}</div>
+                <div class="card-body">
+                    {{comment.body}}
+                    
+                </div>
+                <div class="card-footer">{{comment.email}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
